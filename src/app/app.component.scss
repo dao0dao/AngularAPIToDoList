@@ -1,0 +1,178 @@
+:root {
+    font-size: 16px;
+}
+h1 {
+    text-align: center;
+}
+section {
+    position: relative;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid grey;
+    text-align: center;
+    label {
+        display: block;
+    }
+    input {
+        margin: 5px;
+        padding: 3px;
+        font-size: 1.2rem;
+    }
+    label p {
+        display: inline-block;
+    }
+    .limit,
+    .option {
+        display: inline-block;
+        max-width: 150px;
+        font-size: 1.1rem;
+    }
+    .btn {
+        margin: 10px;
+        padding: 2px 10px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        &:disabled {
+            position: relative;
+            overflow: hidden;
+            background-color: grey;
+            border: 2px solid grey;
+            color: #fff;
+            cursor: unset;
+            &::before {
+                display: block;
+                position: absolute;
+                top: 1%;
+                left: -107%;
+                content: "⭙";
+                height: 100%;
+                width: 100%;
+                z-index: 1;
+                border: 2px solid #fff;
+                background-color: #fff;
+                font-weight: 800;
+                color: #941f1f;
+                transition: left 0.2s linear, z-index 0.8s linear;
+            }
+            &:hover {
+                &::before {
+                    left: 0;
+                }
+            }
+        }
+    }
+    .btnDark {
+        position: relative;
+        border: 2px solid transparent;
+        background-color: transparent;
+        overflow: visible;
+        &::before,
+        &::after {
+            display: block;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            content: "";
+            z-index: -1;
+        }
+        &:not([disabled]) {
+            &::before,
+            &::after {
+                transition: overflow 0.5s, transform 0.35s linear, border-top-left-radius 0.35s linear,
+                    border-bottom-right-radius 0.35s linear;
+            }
+        }
+        &::before {
+            border-top: 1px solid black;
+            border-left: 1px solid black;
+        }
+        &::after {
+            border-bottom: 1px solid black;
+            border-right: 1px solid black;
+        }
+        &:not([disabled]):hover {
+            color: rgb(34, 100, 34);
+            &::before {
+                border-top: 3px solid rgb(34, 100, 34);
+                border-left: 3px solid rgb(34, 100, 34);
+                border-top-left-radius: 15px;
+                transform: translate(-6px, -6px);
+            }
+            &::after {
+                transform: translate(6px, 6px);
+                border-bottom: 3px solid rgb(34, 100, 34);
+                border-right: 3px solid rgb(34, 100, 34);
+                border-bottom-right-radius: 15px;
+            }
+        }
+    }
+    .btnRed {
+        position: relative;
+        overflow: hidden;
+        border: 2px solid #941f1f;
+        border-radius: 10px;
+        background-color: transparent;
+        color: #941f1f;
+        &::before,
+        &::after {
+            display: block;
+            position: absolute;
+            content: "";
+            width: 50%;
+            height: 100%;
+            z-index: -1;
+            border: 2px solid #941f1f;
+            background-color: #941f1f;
+            transition: 0.2s linear;
+        }
+        &::before {
+            top: -118%;
+            left: 0;
+        }
+        &::after {
+            top: 100%;
+            right: 0;
+        }
+        &:hover {
+            color: #fff;
+            &::before,
+            &::after {
+                top: 0;
+            }
+        }
+    }
+    .task {
+        width: 80%;
+        margin: 30px auto;
+        padding: 10px;
+        border-radius: 5px;
+        border: 2px solid transparent;
+        box-shadow: 0 0 5px grey;
+        text-align: center;
+        transition: 0.5s ease-in;
+        &:hover {
+            transform: scale(1.2);
+            border: 2px solid black;
+            box-shadow: 0 7px 10px black;
+        }
+    }
+    p {
+        margin: 2px;
+        font-size: 1.2rem;
+    }
+    .done {
+        p {
+            text-decoration-line: line-through;
+        }
+    }
+    .loading {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
