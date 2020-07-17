@@ -8,3 +8,7 @@ Tasks are downloaded from fake online REST API
 1. JSONPlaceholder - https://jsonplaceholder.typicode.com/
 2. Angular 
 3. This API doesn't handle errors message.
+
+-------
+### Link to live page
+https://dao0dao.github.io/AngularAPIToDoList/
